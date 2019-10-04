@@ -43,6 +43,10 @@ func lexer():
 						node = Sum.new()
 					'-':
 						node = Sub.new()
+					'*':
+						node = Mul.new()
+					'/':
+						node = Div.new()
 		
 		tot.append(node)
 	
@@ -59,10 +63,14 @@ func parser(tokens):
 	
 	while not end:
 		
-		if tot.size() < 3:
+		if tot.size() < 3 :
 			print('items is less then 3')
 			end = true
 			error = true
+			
+			if tot.size() == 1:
+				error = false
+				print('but enouch')
 			break
 		
 		if tot[i] is Op:
@@ -86,7 +94,7 @@ func parser(tokens):
 				break
 			
 			tot.insert(0, node)
-			print(tot[0].eval())
+#			print(tot[0].eval())
 			i -= 1
 		
 		if i+1 < tot.size():
@@ -150,7 +158,7 @@ class Sum:
 	extends Op
 	
 	func eval():
-		print(str(left.eval()) + ' + ' + str(right.eval()))
+#		print(str(left.eval()) + ' + ' + str(right.eval()))
 		return left.eval() + right.eval()
 
 
@@ -158,5 +166,22 @@ class Sub:
 	extends Op
 	
 	func eval():
-		print(str(left.eval()) + ' - ' + str(right.eval()))
+#		print(str(left.eval()) + ' - ' + str(right.eval()))
 		return left.eval() - right.eval()
+
+
+class Div:
+	extends Op
+	
+	func eval():
+#		print(str(left.eval()) + ' / ' + str(right.eval()))
+		return left.eval() / right.eval()
+
+
+class Mul:
+	extends Op
+	
+	func eval():
+#		print(str(left.eval()) + ' * ' + str(right.eval()))
+		return left.eval() * right.eval()
+
