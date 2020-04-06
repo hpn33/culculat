@@ -110,18 +110,8 @@ func parser(tokens):
 	return 'error'
 
 
-
-func calculat():
-	result = parser(lexer())
-
-func set_output():
-	output.text = str(result)
-
-
 func _on_Input_text_change(text):
-	calculat()
-	set_output()
-
+	output.text = str(parser(lexer()))
 
 
 

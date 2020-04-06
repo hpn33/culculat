@@ -37,7 +37,6 @@ size_flags_horizontal = 3
 text = "0"
 align = 1
 valign = 1
-
 [connection signal="text_change" from="screen/HBoxContainer/Input" to="." method="_on_Input_text_change"]
 [connection signal="text_changed" from="screen/HBoxContainer/Input" to="screen/HBoxContainer/Input" method="_on_Input_text_changed"]
 [connection signal="timeout" from="screen/HBoxContainer/Input/Timer4" to="screen/HBoxContainer/Input" method="_on_Timer4_timeout"]
